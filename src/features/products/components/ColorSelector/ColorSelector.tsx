@@ -3,8 +3,8 @@
 import { useMemo, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
 
-import type { ColorOption } from "@/types/product";
 import { Label, List, Swatch, SwatchColor } from "./ColorSelector.styles";
+import type { ColorOption } from "@/types/product";
 
 export function ColorSelector({
   colorOptions,

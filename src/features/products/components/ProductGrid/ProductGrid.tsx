@@ -1,6 +1,6 @@
-import type { ProductListItem } from "@/types/product";
-import { ProductCard } from "../ProductCard";
 import { Grid } from "./ProductGrid.styles";
+import { ProductCard } from "../ProductCard";
+import type { ProductListItem } from "@/types/product";
 
 export function ProductGrid({ products }: { products: ProductListItem[] }) {
   return (

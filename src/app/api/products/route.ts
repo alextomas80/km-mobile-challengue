@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getProducts } from "@/lib/api/products";
+
 import { ApiError } from "@/lib/api/errors";
+import { getProducts } from "@/lib/api/products";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
@@ -17,10 +18,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(products);
   } catch (error) {
     if (error instanceof ApiError) {
-      return NextResponse.json(
-        error.body ?? { error: "ApiError", message: error.message },
-        { status: error.status },
-      );
+      return NextResponse.json(error.body ?? { error: "ApiError", message: error.message }, { status: error.status });
     }
     return NextResponse.json(
       { error: "InternalError", message: "Unexpected error fetching products" },

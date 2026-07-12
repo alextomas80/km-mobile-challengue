@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
+
 import { loadCart, saveCart } from "./cartStorage";
 import type { CartItem } from "@/types/cart";
 

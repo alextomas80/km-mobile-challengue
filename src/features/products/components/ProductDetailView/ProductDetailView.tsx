@@ -2,14 +2,7 @@
 
 import Image from "next/image";
 
-import type { ProductDetail } from "@/types/product";
-import { useProductSelection } from "../../hooks/useProductSelection";
-import { ColorSelector } from "../ColorSelector";
-import { StorageSelector } from "../StorageSelector";
-import { ProductSpecs } from "../ProductSpecs";
 import { AddToCartButton } from "../AddToCartButton";
-import { SimilarProducts } from "../SimilarProducts";
-import { formatPrice } from "@/components/ui/formatPrice";
 import {
   BasePrice,
   ColorSelectorWrapper,
@@ -19,6 +12,13 @@ import {
   Name,
   Subtitle,
 } from "./ProductDetailView.styles";
+import { ColorSelector } from "../ColorSelector";
+import { formatPrice } from "@/components/ui/formatPrice";
+import { ProductSpecs } from "../ProductSpecs";
+import { SimilarProducts } from "../SimilarProducts";
+import { StorageSelector } from "../StorageSelector";
+import { useProductSelection } from "../../hooks/useProductSelection";
+import type { ProductDetail } from "@/types/product";
 
 export function ProductDetailView({ product }: { product: ProductDetail }) {
   const { selectedColor, selectedStorage, displayImageUrl, currentPrice, basePrice, canAddToCart, actions } =

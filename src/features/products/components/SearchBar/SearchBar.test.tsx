@@ -1,10 +1,10 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
+import userEvent from "@testing-library/user-event";
 
-import { theme } from "@/styles/theme";
 import { SearchBar } from "./SearchBar";
+import { theme } from "@/styles/theme";
 
 function renderWithProviders(ui: React.ReactElement) {
   return render(<ThemeProvider theme={theme}>{ui}</ThemeProvider>);
@@ -13,6 +13,7 @@ function renderWithProviders(ui: React.ReactElement) {
 describe("SearchBar", () => {
   it("renders the current value", () => {
     renderWithProviders(<SearchBar value="iphone" onChange={vi.fn()} />);
+
     expect(screen.getByRole("searchbox", { name: /search for a smartphone/i })).toHaveValue("iphone");
   });
 

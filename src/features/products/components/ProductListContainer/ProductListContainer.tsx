@@ -5,9 +5,9 @@ import { ProductGridSkeleton } from "../ProductGridSkeleton";
 import { ProductListEmpty, ProductListError } from "../ProductListMessage";
 import { ResultsCount } from "../ResultsCount";
 import { SearchBar } from "../SearchBar";
+import { Toolbar } from "./ProductListContainer.styles";
 import { useProductSearch } from "../../hooks/useProductSearch";
 import type { ProductListItem } from "@/types/product";
-import { Toolbar } from "./ProductListContainer.styles";
 
 export function ProductListContainer({ initialProducts }: { initialProducts: ProductListItem[] }) {
   const { searchTerm, setSearchTerm, products, isLoading, error, retry } = useProductSearch(initialProducts);

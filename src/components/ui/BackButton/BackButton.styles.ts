@@ -24,8 +24,8 @@ export const StyledBackButton = styled.button`
 `;
 
 export const Chevron = styled.span`
-  border-left: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
+  border-left: 1px solid currentColor;
   display: inline-block;
   height: 6px;
   transform: rotate(45deg);

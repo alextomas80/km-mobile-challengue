@@ -1,11 +1,12 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi, beforeEach } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
-import { theme } from "@/styles/theme";
-import { CartProvider } from "@/context/cart/CartContext";
-import { useCart } from "@/hooks/useCart";
+import userEvent from "@testing-library/user-event";
+
 import { AddToCartButton } from "./AddToCartButton";
+import { CartProvider } from "@/context/cart/CartContext";
+import { theme } from "@/styles/theme";
+import { useCart } from "@/hooks/useCart";
 import type { ColorOption, ProductDetail, StorageOption } from "@/types/product";
 
 const push = vi.fn();

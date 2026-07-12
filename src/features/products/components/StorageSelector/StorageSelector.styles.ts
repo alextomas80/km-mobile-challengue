@@ -6,15 +6,15 @@ export const List = styled.div`
 `;
 
 export const Pill = styled.button<{ $selected: boolean }>`
-  padding: ${({ theme }) => `${theme.spacing[1]} ${theme.spacing[2]}`};
-  border: 1px solid ${({ theme, $selected }) => ($selected ? theme.colors.text : theme.colors.textMuted)};
   background: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme, $selected }) => ($selected ? theme.colors.text : theme.colors.textMuted)};
   color: ${({ theme }) => theme.colors.text};
   cursor: pointer;
   font-size: ${({ theme }) => theme.fontSizes.lg};
   font-weight: 300;
-  width: 95px;
   height: 65px;
+  padding: ${({ theme }) => `${theme.spacing[1]} ${theme.spacing[2]}`};
+  width: 95px;
   transition:
     border-color 0.3s ease,
     color 0.3s ease,

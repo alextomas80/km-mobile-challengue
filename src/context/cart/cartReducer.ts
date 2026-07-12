@@ -16,9 +16,7 @@ export function cartReducer(state: CartState, action: CartAction): CartState {
         return {
           ...state,
           items: state.items.map((item) =>
-            item.id === action.payload.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item,
+            item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item,
           ),
         };
       }

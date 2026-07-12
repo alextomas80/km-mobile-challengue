@@ -1,11 +1,12 @@
-import { render, screen } from "@testing-library/react";
-import { useEffect } from "react";
 import { describe, expect, it, beforeEach } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
-import { theme } from "@/styles/theme";
+import { useEffect } from "react";
+
 import { CartProvider } from "@/context/cart/CartContext";
-import { useCart } from "@/hooks/useCart";
 import { Navbar } from "./Navbar";
+import { theme } from "@/styles/theme";
+import { useCart } from "@/hooks/useCart";
 
 const item = {
   id: "SMG-S24U::256 GB::Titanium Violet",

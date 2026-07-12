@@ -1,5 +1,5 @@
-import type { ProductDetail, ProductSpecs as ProductSpecsType } from "@/types/product";
 import { Description, List, Row, Term, Title, Wrapper } from "./ProductSpecs.styles";
+import type { ProductDetail, ProductSpecs as ProductSpecsType } from "@/types/product";
 
 const SPEC_LABELS: Record<keyof ProductSpecsType, string> = {
   screen: "Screen",

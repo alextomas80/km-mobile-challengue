@@ -1,8 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { ProductDetail } from "@/types/product";
+
 import { getPriceForStorage } from "../utils/getPriceForStorage";
+import type { ProductDetail } from "@/types/product";
 
 export function useProductSelection(product: ProductDetail) {
   const [selectedColorName, setSelectedColorName] = useState<string | null>(null);

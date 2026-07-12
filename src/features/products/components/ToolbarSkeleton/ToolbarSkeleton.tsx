@@ -1,7 +1,7 @@
 "use client";
 
-import { Toolbar } from "../ProductListContainer/ProductListContainer.styles";
 import { ResultsText, SearchInput } from "./ToolbarSkeleton.styles";
+import { Toolbar } from "../ProductListContainer/ProductListContainer.styles";
 
 export function ToolbarSkeleton() {
   return (

@@ -2,18 +2,18 @@ import styled, { css } from "styled-components";
 
 export const List = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[2]};
   flex-wrap: wrap;
+  gap: ${({ theme }) => theme.spacing[2]};
 `;
 
 export const Swatch = styled.button<{ $color: string; $selected: boolean }>`
-  width: 24px;
-  height: 24px;
-  padding: 1px;
   background: transparent;
   border: 2px solid ${({ theme, $selected }) => ($selected ? theme.colors.text : theme.colors.textMuted)};
   cursor: pointer;
+  height: 24px;
+  padding: 1px;
   transition: border-color 0.35s ease;
+  width: 24px;
 
   ${({ $selected }) =>
     $selected &&
@@ -28,15 +28,15 @@ export const Swatch = styled.button<{ $color: string; $selected: boolean }>`
 `;
 
 export const SwatchColor = styled.span<{ $color: string }>`
-  display: block;
-  width: 100%;
-  height: 100%;
   background: ${({ $color }) => $color};
+  display: block;
+  height: 100%;
+  width: 100%;
 `;
 
 export const Label = styled.p`
-  margin: ${({ theme }) => theme.spacing[1]} 0 0;
-  font-weight: 300;
   font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: 300;
+  margin: ${({ theme }) => theme.spacing[1]} 0 0;
   min-height: ${({ theme }) => theme.fontSizes.lg};
 `;

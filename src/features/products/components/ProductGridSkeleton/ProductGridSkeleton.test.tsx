@@ -1,9 +1,9 @@
-import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 
-import { theme } from "@/styles/theme";
 import { ProductGridSkeleton } from "./ProductGridSkeleton";
+import { theme } from "@/styles/theme";
 
 function renderWithProviders(ui: React.ReactElement) {
   return render(<ThemeProvider theme={theme}>{ui}</ThemeProvider>);

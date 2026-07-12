@@ -45,7 +45,6 @@ export const baseButtonStyles = css`
   justify-content: center;
   min-width: 260px;
   padding: ${({ theme }) => `${theme.spacing[1.5]} ${theme.spacing[2.5]}`};
-
   transition:
     background-color 0.15s ease,
     border-color 0.15s ease,

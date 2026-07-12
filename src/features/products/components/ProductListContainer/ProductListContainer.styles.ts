@@ -15,7 +15,7 @@ export const Toolbar = styled.div`
   z-index: 10;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    padding: ${({ theme }) => `${theme.spacing[6]} 0 ${theme.spacing[3]}`};
     margin-bottom: ${({ theme }) => theme.spacing[6]};
+    padding: ${({ theme }) => `${theme.spacing[6]} 0 ${theme.spacing[3]}`};
   }
 `;

@@ -2,13 +2,12 @@
 
 import { createContext, useEffect, useReducer } from "react";
 import type { Dispatch } from "react";
-import type { CartAction, CartState } from "@/types/cart";
+
 import { cartReducer, initialCartState } from "./cartReducer";
 import { loadCart, saveCart } from "./cartStorage";
+import type { CartAction, CartState } from "@/types/cart";
 
-export const CartContext = createContext<
-  { state: CartState; dispatch: Dispatch<CartAction> } | undefined
->(undefined);
+export const CartContext = createContext<{ state: CartState; dispatch: Dispatch<CartAction> } | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, initialCartState);
@@ -23,9 +22,5 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [state.items, state.isHydrated]);
 
-  return (
-    <CartContext.Provider value={{ state, dispatch }}>
-      {children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={{ state, dispatch }}>{children}</CartContext.Provider>;
 }

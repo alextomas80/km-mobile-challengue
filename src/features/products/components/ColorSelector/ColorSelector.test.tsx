@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
+import userEvent from "@testing-library/user-event";
 
-import type { ColorOption } from "@/types/product";
-import { theme } from "@/styles/theme";
 import { ColorSelector } from "./ColorSelector";
+import { theme } from "@/styles/theme";
+import type { ColorOption } from "@/types/product";
 
 const colorOptions: ColorOption[] = [
   { name: "Midnight", hexCode: "#1a1a1a", imageUrl: "/midnight.png" },
@@ -35,9 +35,7 @@ describe("ColorSelector", () => {
   });
 
   it("marks only the selected color as checked", () => {
-    renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} selectedColorName="Silver" onSelect={vi.fn()} />,
-    );
+    renderWithProviders(<ColorSelector colorOptions={colorOptions} selectedColorName="Silver" onSelect={vi.fn()} />);
 
     expect(screen.getByRole("radio", { name: "Midnight" })).toHaveAttribute("aria-checked", "false");
     expect(screen.getByRole("radio", { name: "Silver" })).toHaveAttribute("aria-checked", "true");
@@ -53,26 +51,20 @@ describe("ColorSelector", () => {
   });
 
   it("shows the selected color name in the label", () => {
-    renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} selectedColorName="Gold" onSelect={vi.fn()} />,
-    );
+    renderWithProviders(<ColorSelector colorOptions={colorOptions} selectedColorName="Gold" onSelect={vi.fn()} />);
 
     expect(screen.getByText("Gold")).toBeInTheDocument();
   });
 
   it("renders an empty label when nothing is selected", () => {
-    const { container } = renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} onSelect={vi.fn()} />,
-    );
+    const { container } = renderWithProviders(<ColorSelector colorOptions={colorOptions} onSelect={vi.fn()} />);
 
     const label = container.querySelector("p");
     expect(label).toHaveTextContent("");
   });
 
   it("announces the current selection politely for assistive tech", () => {
-    renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} selectedColorName="Gold" onSelect={vi.fn()} />,
-    );
+    renderWithProviders(<ColorSelector colorOptions={colorOptions} selectedColorName="Gold" onSelect={vi.fn()} />);
 
     expect(screen.getByText("Gold")).toHaveAttribute("aria-live", "polite");
   });
@@ -89,9 +81,7 @@ describe("ColorSelector", () => {
   });
 
   it("only keeps the selected swatch in the tab order (roving tabindex)", () => {
-    renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} selectedColorName="Gold" onSelect={vi.fn()} />,
-    );
+    renderWithProviders(<ColorSelector colorOptions={colorOptions} selectedColorName="Gold" onSelect={vi.fn()} />);
 
     expect(screen.getByRole("radio", { name: "Midnight" })).toHaveAttribute("tabIndex", "-1");
     expect(screen.getByRole("radio", { name: "Silver" })).toHaveAttribute("tabIndex", "-1");
@@ -108,9 +98,7 @@ describe("ColorSelector", () => {
   it("moves focus and selection to the next swatch on ArrowRight", async () => {
     const user = userEvent.setup();
     const onSelect = vi.fn();
-    renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} selectedColorName="Midnight" onSelect={onSelect} />,
-    );
+    renderWithProviders(<ColorSelector colorOptions={colorOptions} selectedColorName="Midnight" onSelect={onSelect} />);
 
     screen.getByRole("radio", { name: "Midnight" }).focus();
     await user.keyboard("{ArrowRight}");
@@ -122,9 +110,7 @@ describe("ColorSelector", () => {
   it("moves focus and selection to the previous swatch on ArrowLeft, wrapping around", async () => {
     const user = userEvent.setup();
     const onSelect = vi.fn();
-    renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} selectedColorName="Midnight" onSelect={onSelect} />,
-    );
+    renderWithProviders(<ColorSelector colorOptions={colorOptions} selectedColorName="Midnight" onSelect={onSelect} />);
 
     screen.getByRole("radio", { name: "Midnight" }).focus();
     await user.keyboard("{ArrowLeft}");
@@ -136,9 +122,7 @@ describe("ColorSelector", () => {
   it("wraps forward from the last swatch to the first on ArrowRight", async () => {
     const user = userEvent.setup();
     const onSelect = vi.fn();
-    renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} selectedColorName="Gold" onSelect={onSelect} />,
-    );
+    renderWithProviders(<ColorSelector colorOptions={colorOptions} selectedColorName="Gold" onSelect={onSelect} />);
 
     screen.getByRole("radio", { name: "Gold" }).focus();
     await user.keyboard("{ArrowRight}");
@@ -150,9 +134,7 @@ describe("ColorSelector", () => {
   it("jumps to the first and last swatch with Home and End", async () => {
     const user = userEvent.setup();
     const onSelect = vi.fn();
-    renderWithProviders(
-      <ColorSelector colorOptions={colorOptions} selectedColorName="Silver" onSelect={onSelect} />,
-    );
+    renderWithProviders(<ColorSelector colorOptions={colorOptions} selectedColorName="Silver" onSelect={onSelect} />);
 
     screen.getByRole("radio", { name: "Silver" }).focus();
     await user.keyboard("{End}");

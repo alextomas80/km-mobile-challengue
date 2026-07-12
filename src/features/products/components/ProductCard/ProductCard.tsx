@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import type { ProductListItem } from "@/types/product";
 import { Body, BodyContent, Brand, Card, ImageWrapper, Name, StyledPrice } from "./ProductCard.styles";
+import type { ProductListItem } from "@/types/product";
 
 export function ProductCard({ product, priority = false }: { product: ProductListItem; priority?: boolean }) {
   return (

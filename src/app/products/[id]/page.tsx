@@ -19,11 +19,7 @@ async function fetchProductOrNotFound(id: string): Promise<ProductDetail> {
   }
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   try {
     const product = await getProductById(id);

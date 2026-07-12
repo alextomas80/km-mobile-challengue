@@ -1,10 +1,10 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 
+import { ProductCard } from "./ProductCard";
 import { theme } from "@/styles/theme";
 import type { ProductListItem } from "@/types/product";
-import { ProductCard } from "./ProductCard";
 
 const product: ProductListItem = {
   id: "SMG-S24U",

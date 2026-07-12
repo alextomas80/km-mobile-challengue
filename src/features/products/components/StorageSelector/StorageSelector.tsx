@@ -1,7 +1,7 @@
 "use client";
 
-import type { StorageOption } from "@/types/product";
 import { List, Pill } from "./StorageSelector.styles";
+import type { StorageOption } from "@/types/product";
 
 export function StorageSelector({
   storageOptions,

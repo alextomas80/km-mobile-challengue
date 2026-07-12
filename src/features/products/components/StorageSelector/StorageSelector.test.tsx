@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
+import userEvent from "@testing-library/user-event";
 
-import type { StorageOption } from "@/types/product";
-import { theme } from "@/styles/theme";
 import { StorageSelector } from "./StorageSelector";
+import { theme } from "@/styles/theme";
+import type { StorageOption } from "@/types/product";
 
 const storageOptions: StorageOption[] = [
   { capacity: "128GB", price: 799 },

@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-import type { CartItem } from "@/types/cart";
 import { Row, ImageWrapper, Info, Name, Specs, Quantity, StyledPrice, RemoveButton } from "./CartItemRow.styles";
+import type { CartItem } from "@/types/cart";
 
 export function CartItemRow({ item, onRemove }: { item: CartItem; onRemove: (id: string) => void }) {
   return (

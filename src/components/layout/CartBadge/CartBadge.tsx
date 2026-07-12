@@ -1,7 +1,7 @@
 "use client";
 
-import { useCart } from "@/hooks/useCart";
 import { Badge } from "./CartBadge.styles";
+import { useCart } from "@/hooks/useCart";
 
 export function CartBadge() {
   const { itemCount } = useCart();
