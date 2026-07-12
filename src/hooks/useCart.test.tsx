@@ -1,5 +1,6 @@
 import { act, renderHook, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
+
 import { CartProvider } from "@/context/cart/CartContext";
 import { useCart } from "./useCart";
 
@@ -47,8 +48,6 @@ describe("useCart", () => {
   });
 
   it("throws when used outside a CartProvider", () => {
-    expect(() => renderHook(() => useCart())).toThrow(
-      "useCart must be used within a CartProvider",
-    );
+    expect(() => renderHook(() => useCart())).toThrow("useCart must be used within a CartProvider");
   });
 });

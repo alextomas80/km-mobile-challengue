@@ -1,5 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+
 import { useDebouncedValue } from "./useDebouncedValue";
 
 describe("useDebouncedValue", () => {
@@ -12,10 +13,9 @@ describe("useDebouncedValue", () => {
   });
 
   it("keeps the initial value until the delay elapses", () => {
-    const { result, rerender } = renderHook(
-      ({ value }) => useDebouncedValue(value, 300),
-      { initialProps: { value: "a" } },
-    );
+    const { result, rerender } = renderHook(({ value }) => useDebouncedValue(value, 300), {
+      initialProps: { value: "a" },
+    });
 
     expect(result.current).toBe("a");
 
@@ -34,10 +34,9 @@ describe("useDebouncedValue", () => {
   });
 
   it("resets the timer on rapid successive updates", () => {
-    const { result, rerender } = renderHook(
-      ({ value }) => useDebouncedValue(value, 300),
-      { initialProps: { value: "a" } },
-    );
+    const { result, rerender } = renderHook(({ value }) => useDebouncedValue(value, 300), {
+      initialProps: { value: "a" },
+    });
 
     rerender({ value: "ab" });
     act(() => {
