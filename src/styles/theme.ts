@@ -30,12 +30,6 @@ export const theme = {
     6: "48px",
     8: "64px",
   } as Record<number, string>,
-  radii: {
-    sm: "6px",
-    md: "10px",
-    lg: "16px",
-    pill: "999px",
-  },
   breakpoints: {
     sm: "480px",
     md: "768px",
